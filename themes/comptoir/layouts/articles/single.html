@@ -1,0 +1,83 @@
+{{ define "main" }}
+{{ $mymonths := $.Site.Data.mois.mois }}
+{{ $mydays := $.Site.Data.jour.jour }}
+{{ $text := split .Content "<!-- split -->" }}
+<div id="article">
+    <div id="Intro" class="parallax {{ if .Params.overlay }}overlayed{{ end }}" style="background-image:url(/xl{{ .Params.listing.image }});" data-enllax-ratio="-0.3">
+        {{ if .Params.overlay }}
+        <div class="opacity-medium bg-extra-dark-gray"></div>
+        {{ end }}
+        <div class="intro-inner">
+            <h1 class="intro-title">{{ .Params.listing.title }}</h1>
+            <div class="intro-meta">
+                <div class="date">
+                    <i class="icon-calendar"></i><span>{{.Date.Month}} {{ index $mydays .Date.Day }}, {{.Date.Year}}</span>
+                </div>
+                {{ if isset .Params "author" }}
+                    {{ $author := index .Site.Data.authors .Params.author }}
+                    <div class="author">
+                        <i class="icon-user"></i><span>{{ $author.name }}</span>
+                    </div>
+                {{ end }}
+                <div class="categories">
+                    <i class="moon-category"></i><span>
+                        {{ range $i, $e := .Params.categories }}{{ if $i }},{{ end }}
+                        <a href="{{ $.Site.BaseURL }}categories/{{ $e | urlize }}">{{ $e }}</a>
+                        {{end}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="intro-next">
+            <i class="icon-down-open-big"></i>
+        </div>
+    </div>
+    <div id="Content">
+        <div class="content_wrapper clearfix">
+            <div class="sections_group">
+                <div class="post format-standard has-post-thumbnail category-hot-articles">
+                    <div class="post-wrapper-content">
+                        <div class="section mcb-section article-text" style="padding-top:50px;padding-bottom:0px; ">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div id="sidebar" class="column mcb-column one-third column_placeholder sidebar">
+                                            <div class="table-of-contents sidebar__inner">
+                                                <!-- {{ .TableOfContents }} -->
+                                                {{- partial "site/table-of-contents.html" . -}}
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column two-third column_column content" id="content">
+                                            <div class="column_attr">
+                                                {{ .Content | markdownify }}
+                                            </div>
+                                            <!-- {{- partial "site/post-author.html" . -}} -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section mcb-section" style="">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div id="" class="column mcb-column one-third column_placeholder">
+                                            <div class="placeholder">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column two-third column_column content">
+                                            {{- partial "site/related-posts.html" . -}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}

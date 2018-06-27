@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div id="Subheader" style="background-image: url('{{ .Params.image }}');" class="contact thank-you-page">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title">{{ .Params.titre }}<span class="moon-heart_empty" style="margin-left: 20px; color: white"></span></h1>
+        </div>
+    </div>
+</div>
+<main class="main" id="contact">
+	<div id="Content">
+        <div class="content_wrapper clearfix">
+            <div class="sections_group">
+                <div class="entry-content">
+                    <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; ">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one  valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_column">
+                                        <div class="column_attr thank-you-page">
+                                            {{ .Content }}
+                                            <div class="contact-separator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section the_content no_content">
+                        <div class="section_wrapper">
+                            <div class="the_content_wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}

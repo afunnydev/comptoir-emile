@@ -1,0 +1,90 @@
+{{ $mymonths := $.Site.Data.mois.mois }}
+{{ $mydays := $.Site.Data.jour.jour }}
+<footer id="Footer" class="clearfix">
+    <div class="widgets_wrapper" style="padding:40px 0 30px;">
+        <div class="container">
+            <div class="column one-fourth">
+                <aside class="widget widget_text">
+                    <h4>Sitemap</h4>
+                    <div class="textwidget">
+                        <ul style="line-height: 30px;">
+                            <li>
+                                <i class="icon-home" style="color: #fff; margin-right: 10px;"></i><a href='{{ $.Scratch.Get "homePage" }}'>Home </a>
+                            </li>
+                            <li>
+                                <i class="icon-quote" style="color: #fff; margin-right: 10px;"></i><a href='{{ $.Scratch.Get "articlesPage" }}'>Articles</a>
+                            </li>
+                            <li>
+                                <i class="icon-user" style="color: #fff; margin-right: 10px;"></i><a href='{{ $.Scratch.Get "aboutPage" }}'>About Us</a>
+                            </li>
+                            <li>
+                                <i class="icon-email" style="color: #fff; margin-right: 10px;"></i><a href='{{ $.Scratch.Get "contactPage" }}'>Contact Us</a>
+                            </li>
+                            <li>
+                                <i class="icon-pencil-line" style="color: #fff; margin-right: 10px;"></i><a href='{{ $.Scratch.Get "writePage" }}'>Write with Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="column one-fourth">
+                <aside class="widget widget_mfn_recent_posts">
+                    <h4>Recent posts</h4>
+                    <div class="Recent_posts">
+                        <ul>
+                            {{ range $i, $e := first 2 (where $.Site.RegularPages "Type" "articles") }}
+                            <li class="post ">
+                                <a href="{{ .Permalink }}">
+                                    <div class="photo"><img width="80" height="80" src="/quart{{ .Params.image }}" class="scale-with-grid wp-post-image" alt="{{ .Params.listing.title }}" /><span class="c">{{ .Params.likes }}</span>
+                                    </div>
+                                    <div class="desc">
+                                        <h6>{{ .Params.listing.title }}</h6><span class="date"><i class="icon-calendar"></i>{{.Date.Month}} {{ index $mydays .Date.Day }}, {{.Date.Year}}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="column one-fourth">
+                <aside class="widget widget_mfn_recent_posts">
+                    <h4 style="visibility: hidden;" class="hidden-xs">Recent posts</h4>
+                    <div class="Recent_posts">
+                        <ul>
+                            {{ range $i, $e := first 2 (after 2 (where $.Site.RegularPages "Type" "articles")) }}
+                            <li class="post ">
+                                <a href="{{ .Permalink }}">
+                                    <div class="photo"><img width="80" height="80" src="/quart{{ .Params.image }}" class="scale-with-grid wp-post-image" alt="{{ .Params.listing.title }}" /><span class="c">{{ .Params.likes }}</span>
+                                    </div>
+                                    <div class="desc">
+                                        <h6>{{ .Params.listing.title }}</h6><span class="date"><i class="icon-calendar"></i>{{.Date.Month}} {{ index $mydays .Date.Day }}, {{.Date.Year}}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="column one-fourth hidden-xs">
+                <aside class="widget widget_tag_cloud">
+                    <h4>Follow Us</h4>
+                    <div id="instafeed"></div>
+                    <!-- <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/3ded93ea1ba457bbaccbf8405fbc9668.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe> -->
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="footer_copy">
+        <div class="container">
+            <div class="column one">
+                <a id="back_to_top" class="button button_left button_js" href="#"><span class="button_icon"><i class="icon-up-open-big"></i></span></a>
+                <div class="copyright">
+                    &copy; 2018 Tiny House Society - Made with <i class="icon-heart-fa"></i> for you
+                </div>
+                <ul class="social"></ul>
+            </div>
+        </div>
+    </div>
+</footer>

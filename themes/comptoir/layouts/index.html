@@ -1,0 +1,211 @@
+{{ define "main" }}
+<div class="content_wrapper clearfix">
+    <div class="sections_group">
+        <div class="entry-content">
+            <div id="home-slider" class="section mcb-section dark has-navi" style="padding-top:270px; padding-bottom:230px; background-color:#b0b3b5; background-image:url({{ .Params.image }}); background-repeat:no-repeat; background-position:center center; background-attachment:fixed; background-size:cover; -webkit-background-size:cover" data-enllax-ratio="-0.3">
+                <div class="section-nav next">
+                    <i class="icon-down-open-big"></i>
+                </div>
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_image ">
+                                <div class="scale-with-grid aligncenter no_border">
+                                    <h1 class="home-title">{{ .Params.titre }}</h1>
+                                    {{ with .Params.subtitle }}
+                                    <span class="home-subtitle">{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section mcb-section full-width no-margin-h no-margin-v  " style="padding-top:0px; padding-bottom:0px; background-color:#dcdfe1" id="hot-articles">
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_blog ">
+                                <div class="column_filters">
+                                    <div class="blog_wrapper isotope_wrapper clearfix">
+                                        <div class="posts_group lm_wrapper col-4 masonry tiles isotope">
+                                            {{ range $i, $e := (where $.Site.RegularPages "Type" "articles") }}
+                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail category-hot-articles">
+                                                {{- partial "site/articles-post.html" . $ -}}
+                                            </div>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ with .Params.section1 }}
+            <div class="section mcb-section equal-height" id="quote-section" style="padding-top:30px; padding-bottom:0px; background-color:#dcdfe1">
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  column-margin-30px valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_column">
+                                <div class="column_attr align_center{{ if .overlay }} overlayed{{ end }}" style=" background-color:#f0f1f2; background-image:url({{ .image }}); background-repeat:no-repeat; background-position:center center; padding:70px 7% 55px; background-size: cover;">
+                                    {{ if .overlay }}<div class="black-overlay"></div>{{ end }}
+                                    <h4 style="color: white">{{ .title }}</h3>
+                                    <p class="description">{{ .description }}</p>
+                                    <p class="author">- {{ .author }}</p>
+                                </div>
+                            </div>
+                            <!-- <div class="column mcb-column one-third column_column">
+                                <div class="column_attr align_center" style=" background-color:#f0f1f2; padding:40px 7% 25px;">
+                                    <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                        <div class="image_wrapper"><img class="scale-with-grid" src="/images/home_lifestyle_featured_author.png" alt="" width="143" height="143" /> </div>
+                                    </div>
+                                    <hr class="no_line" style="margin: 0 auto 20px;" />
+                                    <h5 class="themecolor" style="margin-bottom: 7px;">Featured Author</h5>
+                                    <h2><a href="#">Mark Spencer</a></h2>
+                                    <p class="big">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit do eiusmod
+                                    </p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+            {{ with .Params.section2 }}
+            <div class="section mcb-section" style="padding-top:0px; padding-bottom:30px; background-color:#dcdfe1">
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  column-margin-0px valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_hover_color ">
+                                <div class="hover_color" style="background:#fff" ontouchstart="this.classList.toggle('hover');">
+                                    <div class="hover_color_bg" style="background:#f0f1f2;">
+                                        <a href="{{ $.Site.BaseURL }}categories/sustainable-building-and-living/">
+                                            <div class="hover_color_wrapper" style="padding:30px 20px;">
+                                                <h4 style="margin: 0;">{{ .title }}</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column mcb-column one column_blog ">
+                                <div class="column_filters">
+                                    <div class="blog_wrapper isotope_wrapper clearfix">
+                                        <div class="posts_group lm_wrapper col-3 masonry tiles isotope" style="background: #f0f1f2">
+                                            {{ $mytag := (.category) }}
+                                            {{ range first 3 (index $.Site.Taxonomies.categories $mytag).Pages }}
+                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail category-people">
+                                              {{- partial "site/articles-post.html" . $ -}}
+                                            </div>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+            {{ with .Params.section3 }}
+            <div class="section mcb-section" style="padding-top:0px; padding-bottom:30px; background-color:#dcdfe1">
+                <div class="section_wrapper mcb-section-inner">
+                    {{ range .cols }}
+                    <div class="wrap mcb-wrap one-second  column-margin-0px valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_hover_color ">
+                                <div class="hover_color" style="background:#fff" ontouchstart="this.classList.toggle('hover');">
+                                    <div class="hover_color_bg" style="background:#f0f1f2;">
+                                        <a href="{{ $.Site.BaseURL }}categories/architecture-and-design/">
+                                            <div class="hover_color_wrapper" style="padding:30px 20px;">
+                                                <h4 style="margin: 0;">{{ .title }}</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column mcb-column one column_blog ">
+                                <div class="column_filters">
+                                    <div class="blog_wrapper isotope_wrapper clearfix">
+                                        <div class="posts_group lm_wrapper col-2 masonry tiles isotope" style="background: #f0f1f2">
+                                            {{ $mytag := (.category) }}
+                                            {{ $class := .class}}
+                                            {{ range first 2 (index $.Site.Taxonomies.categories $mytag).Pages }}
+                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail {{ $class }}">
+                                              {{ partial "site/articles-post.html" . $}}
+                                            </div>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+            {{ with .Params.section4 }}
+            <div class="section mcb-section pre-footer" style="padding-top:40px; padding-bottom:0px; ">
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            {{ with .col1 }}
+                            <div class="column mcb-column one-third column_column">
+                                <div class="column_attr">
+                                    <h2>{{ .title }}</h2>
+                                    <hr class="no_line" style="margin: 0 auto 15px;" />
+                                    <p>{{ .description1 | markdownify }}</p>
+                                    <p>
+                                        {{ .description2 | markdownify}}
+                                    </p>
+                                </div>
+                            </div>
+                            {{ end }}
+                            {{ with .col2 }}
+                            <div class="column mcb-column one-third column_column author-list">
+                                <div class="column_attr">
+                                    <h2>{{ .title }}</h2>
+                                    <hr class="no_line" style="margin: 0 auto 15px;" />
+                                    {{ range sort $.Site.Data.authors "weight" "asce" }}
+                                    <div style="position: relative; padding: 0 0 0 40px;">
+                                        <span class="icon-user place-left"></span>
+                                        <h5 style="font-weight: 700; margin: 0 0 6px 0">{{ .name }}</h5>
+                                        <p>
+                                            {{ .bio }}
+                                        </p>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            {{ end }}
+                            {{ with .col3 }}
+                            <div class="column mcb-column one-third column_column">
+                                <div class="column_attr">
+                                    <h2>{{ .title }}</h2>
+                                    <hr class="no_line" style="margin: 0 auto 15px;" />
+                                    <p>{{ .description1 | markdownify }}</p>
+                                    <p>
+                                        {{ .description2 | markdownify }}
+                                    </p>
+                                    {{ with .btn }}
+                                    {{ $link := .link }}
+                                    <a class="button button_theme button_js" href="{{ $.Scratch.Get $link }}"><span class="button_label">{{ .text }}</span></a> </div>
+                                    {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+            <div class="section the_content no_content">
+                <div class="section_wrapper">
+                    <div class="the_content_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

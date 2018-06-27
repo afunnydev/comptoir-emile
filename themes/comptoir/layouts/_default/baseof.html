@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{$.Lang}}">
+	{{ $.Scratch.Add "homePage" ("/" | absLangURL) }}
+	{{ $.Scratch.Add "articlesPage" ("articles/" | absLangURL) }}
+	{{ $.Scratch.Add "servicesPage" ("services/" | absLangURL) }}
+	{{ $.Scratch.Add "faqPage" ("faq/" | absLangURL) }}
+	{{ if eq .Lang "fr" }}
+	{{ $.Scratch.Add "contactPage" ("contact/" | absLangURL) }}
+	{{ $.Scratch.Add "aboutPage" ("a-propos/" | absLangURL) }}
+	{{ else if eq .Lang "en" }}
+	{{ $.Scratch.Add "contactPage" ("contact-us/" | absLangURL) }}
+	{{ $.Scratch.Add "writePage" ("write-with-us/" | absLangURL) }}
+	{{ $.Scratch.Add "aboutPage" ("about-us/" | absLangURL) }}
+	{{ end }}
+	{{- partial "site-head.html" . -}}
+	<body class="{{ if .IsHome }}template-slider {{ end }}{{ if (eq .Type "articles") }}single single-post single-format-standard {{ end }}color-custom style-simple button-stroke layout-full-width if-border-hide no-content-padding header-center single-template-builder header-overlay header-transparent minimalist-header-no ab-hide subheader-both-center menu-link-color menuo-no-borders menuo-right mobile-tb-center mobile-side-slide mobile-mini-mr-ll be-reg-2062 ">
+		{{ `<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->` | safeHTML }}
+		{{- partial "header/google-tag-manager.html" . -}}
+		<div id="Wrapper">
+		  	{{- partial "site-header.html" . -}}
+			<div id="Content">
+				{{block "main" . }}
+				{{end}}
+			</div>
+			{{- partial "site-footer.html" . -}}
+		</div>
+		<!-- eof #Wrapper -->
+		{{- partial "footer/site-scripts.html" . -}}
+	</body>
+</html>

@@ -1,0 +1,124 @@
+{{ define "main" }}
+<div id="Subheader" style="background-image: url('{{ .Params.image }}');" class="contact">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title">{{ .Params.titre }}</h1>
+        </div>
+    </div>
+</div>
+<main class="main" id="contact">
+	<div id="Content">
+        <div class="content_wrapper clearfix">
+            <div class="sections_group">
+                <div class="entry-content">
+                    <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; ">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one  valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_column">
+                                        <div class="column_attr">
+                                            <h4>{{ .Params.section1 }}</h4>
+                                            <div class="contact-separator"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section mcb-section" style="padding-top:0px; padding-bottom:10px; ">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one  valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one-third column_column">
+                                        <div class="column_attr" style=" padding:0 10% 0 0;">
+                                            <h3>Send us
+												<br>
+												a message</h3>
+                                            <h6 class="regular-text">{{ .Params.section2.subtitle }}</h6>
+                                            <p>
+                                                {{ .Params.section2.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="column mcb-column two-third column_column">
+                                        <div class="column_attr">
+                                            <div id="contactWrapper">
+                                                <form id="contactform">
+                                                    <div class="column one-second">
+                                                        <input placeholder="Your name" type="text" name="name" id="name" size="40" aria-required="true" aria-invalid="false" />
+                                                    </div>
+                                                    <div class="column one-second">
+                                                        <input placeholder="Your e-mail" type="email" name="email" id="email" size="40" aria-required="true" aria-invalid="false" />
+                                                    </div>
+                                                    {{ if eq .Params.menuid "write" }}
+                                                    <div class="column one">
+                                                        <input placeholder="Link to an article (Google Doc)" type="text" name="link" id="subject" size="40" aria-invalid="false" />
+                                                    </div>
+                                                    {{ else }}
+                                                    <div class="column one">
+                                                        <input placeholder="Subject" type="text" name="subject" id="subject" size="40" aria-invalid="false" />
+                                                    </div>
+                                                    {{ end }}
+                                                    {{ if eq .Params.menuid "write" }}
+                                                    <div class="column one">
+                                                        <textarea placeholder="Why do you want to write with us?" name="body" id="body" style="width:100%;" rows="10" aria-invalid="false"></textarea>
+                                                    </div>
+                                                    {{ else }}
+                                                    <div class="column one">
+                                                        <textarea placeholder="Message" name="body" id="body" style="width:100%;" rows="10" aria-invalid="false"></textarea>
+                                                    </div>
+                                                    {{ end }}
+                                                    <div class="column one">
+                                                        <input type="button" value="Send A Message" id="submit" onClick="return check_values();">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ with .Params.section3 }}
+                                    <div class="column mcb-column one column_divider ">
+                                        <hr class="no_line" />
+                                    </div>
+                                    <div class="column mcb-column one-third column_column">
+                                        <div class="column_attr" style=" padding:0 10% 0 0;">
+                                            <h3>{{ .title }}</h3>
+                                            <h6 class="regular-text">{{ .subtitle }}</h6>
+                                            <p>
+                                                {{ .description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="column mcb-column two-third column_tabs ">
+                                        <div class="jq-tabs tabs_wrapper tabs_horizontal">
+                                            <ul>
+                                                {{ range .tabs}}
+                                                <li>
+                                                    <a href="#{{ .id }}">{{ .title }}</a>
+                                                </li>
+                                                {{ end }}
+                                            </ul>
+                                            {{ range .tabs}}
+                                            <div id="{{ .id }}">
+                                                <p>
+                                                    {{ .description }}
+                                                </p>
+                                            </div>
+                                            {{ end }} 
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section the_content no_content">
+                        <div class="section_wrapper">
+                            <div class="the_content_wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}

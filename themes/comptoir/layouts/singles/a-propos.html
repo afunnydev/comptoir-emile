@@ -1,0 +1,136 @@
+{{ define "main" }}
+<main class="main" id="a-propos">
+	<div class="content_wrapper clearfix">
+        <div class="sections_group">
+            <div class="entry-content">
+                <div class="section mcb-section dark   has-navi" style="padding-top:300px; padding-bottom:260px; background-image:url('{{ .Params.image }}'); background-repeat:no-repeat; background-position:center center; background-attachment:fixed; background-size:cover; -webkit-background-size:cover" data-enllax-ratio="-0.3">
+                    <div class="section-nav prev">
+                        <i class="icon-up-open-big"></i>
+                    </div>
+                    <div class="section-nav next">
+                        <i class="icon-down-open-big"></i>
+                    </div>
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one  valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column">
+                                    <div class="column_attr align_center">
+                                        <h1>{{ .Params.titre }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; ">
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one-third  valign-top clearfix" style="padding:0 4% 0 0">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column  column-margin-10px">
+                                    <div class="column_attr">
+                                        <h4>About us</h4>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one column_column">
+                                    <div class="column_attr">
+                                        <h6>Tiny House Society is more than just a Tiny House blog; it is a dedication to inform more people about the tiny living movement. We are dedicated to provide the best content and share it with the Tiny House community. </h6>
+                                        <p>
+                                            Building a house is one of the most significant projects a single person gets in his life. We think that building conscientiously is essential for the ecosystem we live in and for the world we leave for our children. We promote a minimalist way of living, that resonates well with the content we suggest to our readers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap mcb-wrap two-third  valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column  column-margin-10px">
+                                    <div class="column_attr">
+                                        <h4>Short story</h4>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one-second column_column">
+                                    <div class="column_attr">
+                                        <h6>Since day one, we gave our readers the opportunity to read about real stories, and we shared great ideas to make the Tiny House world go further</h6>
+                                        <p>
+                                            Now we want to continue to innovate and give you the latest innovations in the tiny house industry! We believe that living Tiny is more than a lifestyle, it is a way of thinking. We need less to make more, and that is the whole essence of what we want to share.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one-second column_column">
+                                    <div class="column_attr">
+                                        <p>
+                                            If you want to know more about us, our way of doing work or our team, you can send us a line, and we will be happy to talk with you! 
+                                        </p>
+                                        <!-- <p>
+                                            Felis tempus condimentum? Ut interdum eros in dolor hendrerit aliquet. Sed tempor mollis diam. Donec aliquet ante mauris, ut cursus dui luctus sagittis! In hac habitasse platea dictumst. Fusce et elit tristique purus lacinia ornare quis vitae risus metus mauris, ut cursus dui luctus sagittis! In hac habitasse platea dictumst. Fusce et elit tristique purus lacinia ornare quis vitae risus metus.
+                                        </p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section mcb-section" style="padding-top:0px; padding-bottom:20px; ">
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one  valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one-second column_image ">
+                                    <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                        <div class="image_wrapper"><img class="scale-with-grid" src="/img/tiny-house-3.jpg" alt="Tiny House Society" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one-second column_column">
+                                    <div class="column_attr" style=" padding:30px 0 0 5%;">
+                                        <h3>Interested in writing with us?</h3>
+                                        <hr class="no_line" style="margin: 0 auto 30px;" />
+                                        <h6>Yes, you can write with us! We’re always looking for some passionate people that want to share their stories and experiences. If you’ve got an idea that can bring more to the Tiny House community, we want to hear about it!  But that idea doesn’t need to redefine the whole Tiny House world! Just some fresh new tips and tricks or fresh story about your personal experience.</h6>
+                                        <p>
+                                            You don’t have experience writing articles? We’ll help you get on board with our content experts! Innovative and bold Tiny House ideas should be highlighted and you should get the credit for it. 
+                                        </p>
+                                        <a class="button  button_theme button_js" href='{{ $.Scratch.Get "writePage" }}'><span class="button_label">Learn More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section mcb-section" style="padding-top:0px; padding-bottom:20px; ">
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one  valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column">
+                                    <div class="column_attr align_center">
+                                        <h3>Meet our authors</h3>
+                                        <div class="contact-separator"></div>
+                                    </div>
+                                </div>
+                                {{ range sort $.Site.Data.authors "weight" "asce" }}
+                                <div class="column mcb-column one-third column_column">
+                                    <div class="column_attr align_center" style=" padding:0 4%;">
+                                        <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+                                            <div class="image_wrapper"><img class="scale-with-grid" src="{{ .image }}" alt="{{ .name }}"/>
+                                            </div>
+                                        </div>
+                                        <hr class="no_line" style="margin: 0 auto 20px;" />
+                                        <h5 style="font-weight: 700;">{{ .name }}</h5>
+                                        <p>
+                                            {{ .bio }}
+                                        </p>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section the_content no_content">
+                    <div class="section_wrapper">
+                        <div class="the_content_wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}

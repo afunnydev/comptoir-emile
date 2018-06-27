@@ -1,0 +1,47 @@
+<div id="Header_wrapper" class="bg-parallax" data-enllax-ratio="0.3" {{ if .Params.subheader.need }}style="background-image: url('/xl{{ .Params.subheader.image }}');"{{ end }}>
+    <header id="Header">
+        <div id="Overlay">
+            <nav id="overlay-menu">
+                <ul id="menu-main-menu" class="menu overlay-menu">
+                    <li class="{{ if eq .Params.menuid "home" }}current-menu-item{{ end }}">
+                        <a href='{{ $.Scratch.Get "homePage" }}'>Home.</a>
+                    </li>
+                    <li class="{{ if eq .Params.menuid "articles" }}current-menu-item{{ end }}">
+                        <a href='{{ $.Scratch.Get "articlesPage" }}'>Articles.</a>
+                    </li>
+                    <li class="{{ if eq .Params.menuid "about" }}current-menu-item{{ end }}">
+                        <a href='{{ $.Scratch.Get "aboutPage" }}'>About us.</a>
+                    </li>
+                    <li class="{{ if eq .Params.menuid "write" }}current-menu-item{{ end }}">
+                        <a href='{{ $.Scratch.Get "writePage" }}'>Write with us.</a>
+                    </li>
+                    <li class="{{ if eq .Params.menuid "contact" }}current-menu-item{{ end }}">
+                        <a href='{{ $.Scratch.Get "contactPage" }}'>Contact us.</a>
+                    </li>
+                    <li class="buy-now-btn">
+                        <a target="_blank" href="#">Buy a plan</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <a class="overlay-menu-toggle" href="#"><i class="open icon-menu-fine"></i><i class="close icon-cancel-fine"></i></a>
+        <div class="social-icons">
+            <a href="{{- $.Site.Data.settings.socials.instagramurl -}}" class="instagram" target="_blank"><span class="moon-instagram"></span></a>
+            <a href="{{- $.Site.Data.settings.socials.facebookurl -}}" class="facebook" target="_blank"><span class="moon-facebook"></span></a>
+        </div>
+        <a href="#" class="button button_theme button_js action_button header_cta new_theme_cta" target="_blank"><span class="button_label">Buy a plan</span></a>
+        <div class="header_placeholder"></div>
+        <div id="Top_bar">
+            <div class="container">
+                <div class="column one">
+                    <div class="top_bar_left clearfix">
+                        <div class="logo">
+                            <a id="logo" href="{{ .Site.BaseURL }}" title="Tiny House Lovers" data-height="120" data-padding="0"><img class="logo-main scale-with-grid" src="/img/logo-white-tiny-house.png" data-retina="/img/logo-white-tiny-house.png" data-height="36" alt="mockup"><img class="logo-sticky scale-with-grid" src="/img/logo-white-tiny-house.png" data-retina="/img/logo-white-tiny-house.png" data-height="36" alt="mockup"><img class="logo-mobile scale-with-grid" src="/img/logo-white-tiny-house.png" data-retina="/img/logo-white-tiny-house.png" data-height="36" alt="mockup">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ $mymonths := $.Site.Data.mois.mois }}
+{{ $mydays := $.Site.Data.jour.jour }}
+
+<!-- <main class="main" id="{{ .Type }}-list">
+		{{ .Content}}
+			{{ range $i, $e := sort .Pages ".Params.ordre" "asce" }}
+			{{ $mod1 := modBool $i 1}}
+			{{ $mod2 := modBool $i 2}}
+			{{ $mod3 := modBool $i 3}}
+		{{ end }}
+</main> -->
+{{ end }}

@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="content_wrapper clearfix" id="blog">
+    <div class="sections_group">
+        <div class="entry-content">
+            <div id="home-slider" class="section mcb-section dark has-navi overlayed" style="padding-top:230px; padding-bottom:190px; background-color:#b0b3b5; background-image:url(/half{{ .Params.image }}); background-repeat:no-repeat; background-position:center center; background-attachment:fixed; background-size:cover; -webkit-background-size:cover" data-enllax-ratio="-0.3">
+            	<div class="black-overlay"></div>
+                <div class="section-nav next" style="z-index: 10">
+                    <i class="icon-down-open-big"></i>
+                </div>
+                <div class="section_wrapper mcb-section-inner">
+                    <div class="wrap mcb-wrap one  valign-top clearfix">
+                        <div class="mcb-wrap-inner">
+                            <div class="column mcb-column one column_image ">
+                                <div class="scale-with-grid aligncenter no_border">
+                                    <h1 class="home-title">{{ .Params.titre }}</h1>
+                                    <div class="categories-choices">
+                                    	{{ $tags := $.Site.Taxonomies.categories.Alphabetical }}
+                                    	{{ range $tags }}
+                                    	<a href="{{ $.Site.BaseURL }}categories/{{ .Term | urlize }}#category-articles" class="button button_theme button_js action_button new_theme_cta categories_cta"><span class="button_label">{{ .Term }}</span></a>
+									    {{ end }} 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-filters" style="background-color: #dcdfe1">
+                <div class="section_wrapper clearfix">
+                	<div class="column one">
+                		<p class="nb_articles">We have found <span>{{ len (where $.Site.RegularPages "Type" "articles") }}</span> articles that will interest you!</p>
+					</div>
+                    <!-- {{- partial "site/article-filters.html" . -}} -->
+                </div>
+            </div>
+            <div class="section" style="background-color: #dcdfe1">
+                <div class="section_wrapper clearfix">
+                    <div class="column one column_blog">
+                        <div class="blog_wrapper isotope_wrapper" >
+                            <div class="posts_group lm_wrapper classic col-3">
+                            	{{ range $i, $e := (where $.Site.RegularPages "Type" "articles") }}
+                                <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail category-hot-articles">
+                                    {{- partial "site/articles-listing.html" . -}}
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ with .Content }}
+            {{- partial "site/category-content.html" . -}}
+            {{ end }}
+            <div class="section the_content no_content">
+                <div class="section_wrapper">
+                    <div class="the_content_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
