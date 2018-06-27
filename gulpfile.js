@@ -20,33 +20,13 @@ const imagehalf = 1024;
 const imagequart = 600;
 const imagethumb = 80;
 const jsFiles = [
-                  // 'themes/comptoir/assets/js/theme/jquery-2.1.4.min.js',
-                  // 'themes/comptoir/assets/js/theme/mfn.menu.js',
-                  // 'themes/comptoir/assets/js/theme/jquery.plugins.js',
-                  // 'themes/comptoir/assets/js/theme/jquery.jplayer.min.js',
-                  // 'themes/comptoir/assets/js/theme/animations/animations.js',
-                  // 'themes/comptoir/assets/js/theme/email.js',
-                  // 'themes/comptoir/assets/js/theme/scripts.js',
-                  // 'themes/comptoir/assets/js/vendor/instafeed.min.js',
-                  // 'themes/comptoir/assets/js/vendor/jquery.sticky-sidebar.js',
+                  "themes/comptoir/assets/js/theme/jquery.min.js",
+                  "themes/comptoir/assets/js/theme/bootstrap.min.js",
+                  "themes/comptoir/assets/js/theme/plugins.js",
+                  'themes/comptoir/assets/js/theme/main.js',
                   'themes/comptoir/assets/js/main.js'
                 ];
-const jsFilesUI = [
-                  // 'themes/comptoir/assets/js/theme/jquery-2.1.4.min.js',
-                  // 'themes/comptoir/assets/js/theme/ui/jquery.ui.core.js',
-                  // 'themes/comptoir/assets/js/theme/ui/jquery.ui.widget.js',
-                  // 'themes/comptoir/assets/js/theme/ui/jquery.ui.accordion.js',
-                  // 'themes/comptoir/assets/js/theme/ui/jquery.ui.tabs.js',
-                  // 'themes/comptoir/assets/js/theme/mfn.menu.js',
-                  // 'themes/comptoir/assets/js/theme/jquery.plugins.js',
-                  // 'themes/comptoir/assets/js/theme/jquery.jplayer.min.js',
-                  // 'themes/comptoir/assets/js/theme/animations/animations.js',
-                  // 'themes/comptoir/assets/js/theme/email.js',
-                  // 'themes/comptoir/assets/js/theme/scripts.js',
-                  // 'themes/comptoir/assets/js/vendor/instafeed.min.js',
-                  // 'themes/comptoir/assets/js/vendor/jquery.sticky-sidebar.js',
-                  'themes/comptoir/assets/js/main.js'
-                ];
+
 const jsDest = 'themes/comptoir/static/js';
 
  
@@ -85,7 +65,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('themes/comptoir/static/css'));
 });
 
-gulp.task('scripts-normal', function() {
+gulp.task('scripts', function() {
     return gulp.src(jsFiles)
         .pipe(sourcemaps.init())
         .pipe(concat('main.min.js'))
@@ -93,17 +73,6 @@ gulp.task('scripts-normal', function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(jsDest));
 });
-
-gulp.task('scripts-ui', function() {
-    return gulp.src(jsFilesUI)
-        .pipe(sourcemaps.init())
-        .pipe(concat('main-with-ui.min.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(jsDest));
-});
-
-gulp.task('scripts', ['scripts-normal', 'scripts-ui']);
 
 // watching
 gulp.task("watch", function() {

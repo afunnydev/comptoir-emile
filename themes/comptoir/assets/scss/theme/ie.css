@@ -1,0 +1,46 @@
+﻿.animated {
+	visibility: visible;
+}
+
+.site-header {
+	display: block;
+}
+
+.site-logo {
+	padding-top: 10px;
+}
+
+.navigation {
+	max-width: 100%;
+	left: 130px;
+	right: 130px;
+}
+
+.nav-container {
+	position: relative;
+	margin: 0 auto;
+	height: 50px;
+	max-width: 500px;
+	display: block;
+	text-align: center;
+}
+
+.navigation ul {
+	display: inline-block;
+	margin: 0 auto;
+	overflow: hidden;
+	width: auto;
+	position: relative;
+}
+
+.navigation ul li {
+	display: inline-block;
+	float: none;
+}
+
+.default-button,
+.sm-button,
+.border-button,
+.border-sm-button  {
+	display: inline-block !important;
+}

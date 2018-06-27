@@ -7,7 +7,7 @@ description = ""
 # Pointing to this file
 config = "config.toml"
 contentdir = "content"
-disableKinds = ["RSS"]
+disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
 # Create an array of files you don't want hugo to build
 ignoreFiles = []
 # Enable Logging
