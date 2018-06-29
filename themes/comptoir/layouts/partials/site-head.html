@@ -1,4 +1,4 @@
-<head>
+<!-- <head>
 {{- partial "head/noindex.html" . -}}
 {{- partial "head/tagmanager.html" . -}}
 {{- partial "head/metadata-standard.html" . -}}
@@ -13,4 +13,45 @@
 		<script src="/js/vendor/html5shiv.js"></script>
 		<script src="/js/vendor/jquery-1.12.0.min.js"></script>
 	<![endif]--> ` | safeHTML }}
+</head> -->
+
+<head>
+    
+    <title>Comptoir Monsieur Émile | Bistro gastronomique au coeur de Percé</title>
+    
+    {{- partial "head/noindex.html" . -}}
+    {{- partial "head/tagmanager.html" . -}}
+    <!-- META DATA -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Venez déguster les plats uniques du Chef Sven Jaeckel, concoctés avec des produits locaux et régionaux dans un environnement d’une grande beauté, en plus de profiter d'une ambiance agréable et décontractée.">
+    <meta name="keywords" content="restaurants, percé, bistro, gaspésie">
+    <meta name="author" content="Comptoir Monsieur Émile">
+    
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="/css/main.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--[if lt IE 11]>
+        <link rel="stylesheet" type="text/css" href="css/ie.css">
+    <![endif]-->
+    
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700%7COpen+Sans:300,300i,400,400i,700,700i%7CRaleway:100,200,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+    
+    <!-- JS -->
+    <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
+    
+    <!-- FAVICONS -->
+    {{- partial "head/metadata-favicons.html" . -}}
+    {{- partial "head/metadata-schemaorg.html" . -}}
+    {{- partial "head/metadata-schemaorg.html" . -}}
+
 </head>

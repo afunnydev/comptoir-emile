@@ -1,5 +1,5 @@
 socials:
-  facebookurl: 'https://www.facebook.com/tinyhouseloversofficial/'
+  facebookurl: 'https://www.facebook.com/ComptoirMonsieurEmile/'
   linkedinurl: ''
   twitterurl: ''
   youtubeurl: ''
@@ -12,36 +12,24 @@ twitter:
   share: false
   id: ""
 address:
-  road:
+  road: "16 rue Biard"
   app:
-  city:
-  province:
-  postal:
-  country:
+  city: "Percé"
+  province: "Québec"
+  postal: "G0C 2L0"
+  country: "Canada"
 ouverture:
   fr:
-    - jour: 
-      heures: 
-    - jour:
-      heures: 
-    - jour: 
-      heures: 
-    - jour: 
-      heures: 
+    - jour: Tous les jours
+      heures: 11h30 à 22h
   en:
     - jour: 
       heures: 
-    - jour: 
-      heures: 
-    - jour:
-      heures: 
-    - jour: 
-      heures: 
-phone: 
-mphone: '+'
+phone: '418-782-5428'
+mphone: '+14187825428'
 email: 
-sitedescription: "Tiny House Society is your ultimate source of information to know anything about tiny homes. From building to legislation, we got you covered."
-sitetitle: "Tiny House Society | Your Only Source For Small Living"
-defaultsocialimage: "/img/tiny-house-logo-white.jpg"
-removefromexternalsearch: true
+sitedescription: "Venez déguster les plats uniques du Chef Sven Jaeckel, concoctés avec des produits locaux et régionaux dans un environnement d’une grande beauté, en plus de profiter d'une ambiance agréable et décontractée."
+sitetitle: "Comptoir Monsieur Émile | Bistro gastronomique au coeur de Percé"
+defaultsocialimage: "/img/logo-comptoir-monsieur-emile.png"
+removefromexternalsearch: false
 titleautocompletion: false

@@ -2,49 +2,13 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en-US">  <!--<![endif]-->
-    <head>
-    
-        <title>Comptoir Monsieur Émile | Bistro gastronomique au coeur de Percé</title>
-        
-        <!-- META DATA -->
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="description" content="Venez déguster les plats uniques du Chef Sven Jaeckel, concoctés avec des produits locaux et régionaux dans un environnement d’une grande beauté, en plus de profiter d'une ambiance agréable et décontractée.">
-        <meta name="keywords" content="restaurants, percé, bistro, gaspésie">
-        <meta name="author" content="Comptoir Monsieur Émile">
-        
-        <!-- CSS Global Compulsory -->
-        <link rel="stylesheet" href="/css/main.min.css">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-            <script src="js/respond.min.js"></script>
-        <![endif]-->
-        
-        <!--[if lt IE 11]>
-            <link rel="stylesheet" type="text/css" href="css/ie.css">
-        <![endif]-->
-        
-        <!-- FONTS -->
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:700%7COpen+Sans:300,300i,400,400i,700,700i%7CRaleway:100,200,300,400,700,900' rel='stylesheet' type='text/css'>
-        <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
-        
-        <!-- JS -->
-        <script type="text/javascript" src="/js/vendor/modernizr.js"></script>
-        
-        <!-- FAVICONS -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff0000">
-        <meta name="msapplication-TileColor" content="#2b5797">
-        <meta name="theme-color" content="#ffffff">
-    
-    </head>
+    {{- partial "site-head.html" . -}}
     <body>
+
+        {{ `<!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->` | safeHTML }}
+        {{- partial "header/google-tag-manager.html" . -}}
 
         <!-- <div id="preloader">
             <div id="loading-animation">&nbsp;</div>
@@ -56,7 +20,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-controls="navbar">
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">
+                    <a class="navbar-brand" href="{{ $.Site.BaseURL }}">
                         <!-- Logo -->
                         <img src="/img/logo-comptoir-monsieur-emile.png" alt="Comptoir Monsieur Emile" style="max-height: 100%; width: auto"/>
                     </a>
@@ -123,8 +87,8 @@
                                                     <i class="icon ion-ios-restaurant"></i>
                                                 </div>
                                                 <div class="feature-text">
-                                                    <h3>Adresse</h3>
-                                                    <p>Le Comptoir Monsieur Émile est situé au 16 rue Biard à Percé, Québec, G0C 2L0</p>
+                                                    <h3>Nos coordonnées</h3>
+                                                    <p>Le Comptoir Monsieur Émile est situé au 16 rue Biard à Percé, Québec, G0C 2L0. Vous pouvez nous rejoindre par téléphone au <span class="hidden-xs">418-782-5428</span><a href="tel:+14187825428" class="visible-xs" style="color: white; text-decoration: underline;">418-782-5428</a>.</p>
                                                 </div>
                                             </div>
                                             
@@ -201,7 +165,7 @@
                             <div class="slide-content">
                                 <p class="animated" data-animation="fadeInUp" data-animation-delay="400">Notre équipe se fera un plaisir de vous aider à réserver ou bien à trouver le restaurant.</p>
                                 <div class="contact-form animated" data-animation="fadeInUp" data-animation-delay="600">
-                                    <form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post">
+                                    <form class="mb-0" id="cf" name="formulaire-contact" action="/merci" method="post" netlify>
                                         <div class="row">
 
                                             <div class="form-process"></div>

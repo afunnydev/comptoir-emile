@@ -243,27 +243,27 @@ Version: 1.6
 
 
 		/* Start Javascript for Subscription Form */
-		$('.subscription-form').submit(function(event) {
-			var email = $('#email').val();
-			var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		// $('.subscription-form').submit(function(event) {
+		// 	var email = $('#email').val();
+		// 	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-			$.ajax({
-				url:'subscribe.php',
-				type :'POST',
-				dataType:'json',
-				data: {'email': email},
+		// 	$.ajax({
+		// 		url:'subscribe.php',
+		// 		type :'POST',
+		// 		dataType:'json',
+		// 		data: {'email': email},
 
-				success: function(data){
-					if(data.error){
-						$('.error-message').fadeIn();
-					}else{
-						$('.success-message').fadeIn();
-						$(".error-message").hide();
-					}
-				}
-			});
-			return false;
-		});
+		// 		success: function(data){
+		// 			if(data.error){
+		// 				$('.error-message').fadeIn();
+		// 			}else{
+		// 				$('.success-message').fadeIn();
+		// 				$(".error-message").hide();
+		// 			}
+		// 		}
+		// 	});
+		// 	return false;
+		// });
 
 		$('#email').focus(function(){
 			$('.error-message').fadeOut();
@@ -286,32 +286,32 @@ Version: 1.6
 	}
 
 	// CONTACT FORM
-	function init_ED_ContactForm() {
-		var $contactForm = $('.contact-form');
-		if( $contactForm.length < 1 ){ return true; }
+	// function init_ED_ContactForm() {
+	// 	var $contactForm = $('.contact-form');
+	// 	if( $contactForm.length < 1 ){ return true; }
 
-		$contactForm.each( function(){
-			var element = $(this),
-				elementAlert = element.attr('data-alert-type'),
-				elementResult = element.find('.contact-form-result');
+	// 	$contactForm.each( function(){
+	// 		var element = $(this),
+	// 			elementAlert = element.attr('data-alert-type'),
+	// 			elementResult = element.find('.contact-form-result');
 
-			element.find('form').validate({
-				submitHandler: function(form) {
-					elementResult.hide();
+	// 		element.find('form').validate({
+	// 			submitHandler: function(form) {
+	// 				elementResult.hide();
 
-					$(form).ajaxSubmit({
-						target: elementResult,
-						dataType: 'json',
-						success: function( data ) {
-							elementResult.html( data.message ).fadeIn( 400 );
-							if( data.alert != 'error' ) { $(form).clearForm(); }
-						}
-					});
-				}
-			});
+	// 				$(form).ajaxSubmit({
+	// 					target: elementResult,
+	// 					dataType: 'json',
+	// 					success: function( data ) {
+	// 						elementResult.html( data.message ).fadeIn( 400 );
+	// 						if( data.alert != 'error' ) { $(form).clearForm(); }
+	// 					}
+	// 				});
+	// 			}
+	// 		});
 
-		});
-	}
+	// 	});
+	// }
 	
 	// window load function
 	$(window).on('load', function() {
@@ -324,7 +324,7 @@ Version: 1.6
 		init_ED_PageBackground();
 		init_ED_Layout();
 		init_ED_Plugins();
-		init_ED_ContactForm();
+		// init_ED_ContactForm();
 	});
 
 })(jQuery);
