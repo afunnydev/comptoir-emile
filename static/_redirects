@@ -1,6 +1,6 @@
 # Redirect with a 200
 
-/this /that 301
+/* https://www.comptoirmonsieuremile.com/ 302!
 
 
 
