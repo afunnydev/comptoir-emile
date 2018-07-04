@@ -6,11 +6,16 @@
 }
 
 @media only screen and (max-width: 767px) {
-	
+	#section0 .slides h1 {
+		font-size: 40px;
+		margin-bottom: 20px;
+	}
 }
 
 @media only screen and (max-width: 479px) {
-		
+	#section0 .slides h1 {
+		font-size: 35px;
+	}	
 }
 @media only screen and (max-width: 400px) {
 
