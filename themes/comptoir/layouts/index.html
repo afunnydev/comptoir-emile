@@ -1,39 +1,112 @@
-{{ define "main" }}
-<div class="content_wrapper clearfix">
-    <div class="sections_group">
-        <div class="entry-content">
-            <div id="home-slider" class="section mcb-section dark has-navi" style="padding-top:270px; padding-bottom:230px; background-color:#b0b3b5; background-image:url({{ .Params.image }}); background-repeat:no-repeat; background-position:center center; background-attachment:fixed; background-size:cover; -webkit-background-size:cover" data-enllax-ratio="-0.3">
-                <div class="section-nav next">
-                    <i class="icon-down-open-big"></i>
+<!DOCTYPE html>
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US">  <!--<![endif]-->
+    {{- partial "site-head.html" . -}}
+    <body>
+
+        {{ `<!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->` | safeHTML }}
+        {{- partial "header/google-tag-manager.html" . -}}
+
+        <!-- <div id="preloader">
+            <div id="loading-animation">&nbsp;</div>
+        </div> -->
+
+        <header class="site-header">
+            <nav id="navigation" class="navigation site-nav navbar">
+                <div class="navbar-header onstart animated" data-animation="fadeInDown" data-animation-delay="1200">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-controls="navbar">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ $.Site.BaseURL }}">
+                        <!-- Logo -->
+                        <img src="/img/logo-comptoir-monsieur-emile.png" alt="Comptoir Monsieur Emile" style="max-height: 100%; width: auto"/>
+                    </a>
                 </div>
-                <div class="section_wrapper mcb-section-inner">
-                    <div class="wrap mcb-wrap one  valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            <div class="column mcb-column one column_image ">
-                                <div class="scale-with-grid aligncenter no_border">
-                                    <h1 class="home-title">{{ .Params.titre }}</h1>
-                                    {{ with .Params.subtitle }}
-                                    <span class="home-subtitle">{{ . }}</span>
-                                    {{ end }}
+                <div id="main-nav" class="navbar-collapse collapse">
+                    <ul id="menu" class="nav navbar-nav navbar-right onstart animated" data-animation="fadeInDown" data-animation-delay="800">
+                        <li class="active" data-menuanchor="firstPage"><a href="#firstPage" class="active">Accueil</a></li>
+                        <li data-menuanchor="secondPage"><a href="#secondPage">À propos</a></li>
+                        <li data-menuanchor="3rdPage"><a href="#3rdPage">Réserver</a></li>
+                        <li data-menuanchor="4thPage"><a href="#4thPage">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div id="fullpage">
+
+            <!-- Home Section -->
+            <div class="section home active parallax-background image-1" id="section0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <!-- Slide Content -->
+                            <div class="slide-content">
+                                <div class="flexslider textslider onstart animated" data-animation="fadeInUp" data-animation-delay="800">
+                                    <ul class="slides">
+                                        <li>
+                                            <h1 class="rotate uppercase">Bistro <span class="font-normal">gastronomique<br>au coeur</span> de Percé</h1>
+                                        </li>
+                                    </ul>
                                 </div>
+                                <p class="lead onstart animated" data-animation="fadeInUp" data-animation-delay="1000">Site web en construction</p>
+                                <a href="https://widgets.libroreserve.com/WEB/QC015196556127/book" class="border-button bt-border-white go-slide onstart animated" data-animation="fadeInUp" data-animation-delay="1200" data-slide="2" target="_blank">Réserver</a>
+                                <a data-menuanchor="secondPage" href="#secondPage" class="default-button bt-transparent go-slide onstart animated" data-animation="fadeInUp" data-animation-delay="1200" data-slide="2">En savoir plus <i class="fa fa-angle-down"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="gradient-overlay background-blue-dark opacity-40"></div>
+                </div>
             </div>
-            <div class="section mcb-section full-width no-margin-h no-margin-v  " style="padding-top:0px; padding-bottom:0px; background-color:#dcdfe1" id="hot-articles">
-                <div class="section_wrapper mcb-section-inner">
-                    <div class="wrap mcb-wrap one  valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            <div class="column mcb-column one column_blog ">
-                                <div class="column_filters">
-                                    <div class="blog_wrapper isotope_wrapper clearfix">
-                                        <div class="posts_group lm_wrapper col-4 masonry tiles isotope">
-                                            {{ range $i, $e := (where $.Site.RegularPages "Type" "articles") }}
-                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail category-hot-articles">
-                                                {{- partial "site/articles-post.html" . $ -}}
+
+            <!-- Subscribe Section -->
+            <div class="section parallax-background image-2" id="section1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="section-header">
+                                <!-- Section Title -->
+                                <h2 class="section-title animated" data-animation="fadeInUp">À propos</h2><!-- END TITLE -->
+                                <div class="line-separate line-white line-center animated" data-animation="fadeInUp" data-animation-delay="200"><span></span></div>
+                            </div>
+                            <!-- Slide Content -->
+                            <div class="slide-content animated" data-animation="fadeInUp" data-animation-delay="400">
+                                <p>Le Comptoir Monsieur Émile (Fumoir Monsieur Émile) est un nouveau restaurant de type « bistro gastronomique » établi au cœur de Percé, en Gaspésie. On y déguste les plats uniques du Chef Sven Jaeckel, concoctés avec des produits locaux et régionaux dans un environnement d’une grande beauté, en plus de profiter d'une ambiance agréable et décontractée. Amuses bouches, cocktails, bières de microbrasserie disponibles en tout temps sur la terrasse, au bar ou en salle à manger. Boutique du terroir Gaspésien & Comptoir prêt à emporter ouvert en tout temps.</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="features-list">
+
+                                            <div class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="icon ion-ios-restaurant"></i>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <h3>Nos coordonnées</h3>
+                                                    <p>Le Comptoir Monsieur Émile est situé au 16 rue Biard à Percé, Québec, G0C 2L0. Vous pouvez nous rejoindre par téléphone au <span class="hidden-xs">418-782-5428</span><a href="tel:+14187825428" class="visible-xs" style="color: white; text-decoration: underline;">418-782-5428</a>.</p>
+                                                </div>
                                             </div>
-                                            {{ end }}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="features-list">
+
+                                            <div class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="icon ion-ios-clock"></i>
+                                                </div>
+                                                <div class="feature-text">
+                                                    <h3>Heures d'ouverture</h3>
+                                                    <p>Tous les jours : <span style="display: block;">MIDI 11:30 – 14:30</span><span style="display: block;">SOIR 17:30 – 22:00</span></p>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -41,171 +114,125 @@
                         </div>
                     </div>
                 </div>
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="gradient-overlay background-blue-dark opacity-70"></div>
+                </div>
             </div>
-            {{ with .Params.section1 }}
-            <div class="section mcb-section equal-height" id="quote-section" style="padding-top:30px; padding-bottom:0px; background-color:#dcdfe1">
-                <div class="section_wrapper mcb-section-inner">
-                    <div class="wrap mcb-wrap one  column-margin-30px valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            <div class="column mcb-column one column_column">
-                                <div class="column_attr align_center{{ if .overlay }} overlayed{{ end }}" style=" background-color:#f0f1f2; background-image:url({{ .image }}); background-repeat:no-repeat; background-position:center center; padding:70px 7% 55px; background-size: cover;">
-                                    {{ if .overlay }}<div class="black-overlay"></div>{{ end }}
-                                    <h4 style="color: white">{{ .title }}</h3>
-                                    <p class="description">{{ .description }}</p>
-                                    <p class="author">- {{ .author }}</p>
-                                </div>
+
+            <!-- About Section -->
+            <div class="section parallax-background image-3" id="section2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="section-header color-white">
+                                <!-- Section Title -->
+                                <h2 class="section-title animated" data-animation="fadeInUp">Réservation en ligne</h2><!-- END TITLE -->
+                                <div class="line-separate line-white line-center animated" data-animation="fadeInUp" data-animation-delay="200"><span></span></div>
                             </div>
-                            <!-- <div class="column mcb-column one-third column_column">
-                                <div class="column_attr align_center" style=" background-color:#f0f1f2; padding:40px 7% 25px;">
-                                    <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
-                                        <div class="image_wrapper"><img class="scale-with-grid" src="/images/home_lifestyle_featured_author.png" alt="" width="143" height="143" /> </div>
-                                    </div>
-                                    <hr class="no_line" style="margin: 0 auto 20px;" />
-                                    <h5 class="themecolor" style="margin-bottom: 7px;">Featured Author</h5>
-                                    <h2><a href="#">Mark Spencer</a></h2>
-                                    <p class="big">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit do eiusmod
-                                    </p>
-                                </div>
-                            </div> -->
+                            <!-- Slide Content -->
+                            <div class="slide-content">
+                                <p class="animated" data-animation="fadeInUp" data-animation-delay="200">Utilisez notre outil de réservation en ligne pour découvrir nos disponibilités et réserver d'avance votre table. Nous recommandons de réserver au moins 1 semaine à l'avance.</p>
+                                <!-- Subscribe Form -->
+                                <div class="form animated" data-animation="fadeInUp" data-animation-delay="400">
+                                    <div class="form-container">
+                                        <div class="page-section" id="signup">
+                                            <a href="https://widgets.libroreserve.com/WEB/QC015196556127/book" class="border-button bt-border-white go-slide onstart animated" data-animation="fadeInUp" data-animation-delay="1200" target="_blank">Réserver</a>
+                                        </div><!--end page section -->
+                                    </div><!-- end form container -->
+                                </div><!-- end Subscribe Form -->
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="gradient-overlay background-blue-dark opacity-70"></div>
+                </div>
             </div>
-            {{ end }}
-            {{ with .Params.section2 }}
-            <div class="section mcb-section" style="padding-top:0px; padding-bottom:30px; background-color:#dcdfe1">
-                <div class="section_wrapper mcb-section-inner">
-                    <div class="wrap mcb-wrap one  column-margin-0px valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            <div class="column mcb-column one column_hover_color ">
-                                <div class="hover_color" style="background:#fff" ontouchstart="this.classList.toggle('hover');">
-                                    <div class="hover_color_bg" style="background:#f0f1f2;">
-                                        <a href="{{ $.Site.BaseURL }}categories/sustainable-building-and-living/">
-                                            <div class="hover_color_wrapper" style="padding:30px 20px;">
-                                                <h4 style="margin: 0;">{{ .title }}</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+
+            <!-- Features Section -->
+            <div class="section parallax-background image-4" id="section3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="section-header">
+                                <!-- Section Title -->
+                                <h2 class="section-title animated" data-animation="fadeInUp">Avez-vous une question?</h2><!-- END TITLE -->
+                                <div class="line-separate line-white line-center animated" data-animation="fadeInUp" data-animation-delay="200"><span></span></div>
                             </div>
-                            <div class="column mcb-column one column_blog ">
-                                <div class="column_filters">
-                                    <div class="blog_wrapper isotope_wrapper clearfix">
-                                        <div class="posts_group lm_wrapper col-3 masonry tiles isotope" style="background: #f0f1f2">
-                                            {{ $mytag := (.category) }}
-                                            {{ range first 3 (index $.Site.Taxonomies.categories $mytag).Pages }}
-                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail category-people">
-                                              {{- partial "site/articles-post.html" . $ -}}
+                            <!-- Slide Content -->
+                            <div class="slide-content">
+                                <p class="animated" data-animation="fadeInUp" data-animation-delay="400">Notre équipe se fera un plaisir de vous aider à réserver ou bien à trouver le restaurant.</p>
+                                <div class="contact-form animated" data-animation="fadeInUp" data-animation-delay="600">
+                                    <form class="mb-0" id="cf" name="formulaire-contact" action="/merci" method="post" netlify>
+                                        <div class="row">
+
+                                            <div class="form-process"></div>
+
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" id="cf-name" name="cf-name" placeholder="Nom" class="required">
+                                                </div>
                                             </div>
-                                            {{ end }}
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="email" id="cf-email" name="cf-email" placeholder="Courriel" class="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <input type="text" id="cf-subject" name="cf-subject" placeholder="Sujet (optionnel)" class="light">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-20">
+                                                <div class="form-group">
+                                                    <textarea name="cf-message" id="cf-message" placeholder="Message" class="required" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 hidden">
+                                                <input type="text" id="cf-botcheck" name="cf-botcheck" value="" />
+                                            </div>
+                                            <div class="col-md-12 text-center">
+                                                <button class="border-button" type="submit" id="cf-submit" name="cf-submit">Envoyer un message</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                    <div class="response-message contact-form-result text-center pt-10"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {{ end }}
-            {{ with .Params.section3 }}
-            <div class="section mcb-section" style="padding-top:0px; padding-bottom:30px; background-color:#dcdfe1">
-                <div class="section_wrapper mcb-section-inner">
-                    {{ range .cols }}
-                    <div class="wrap mcb-wrap one-second  column-margin-0px valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            <div class="column mcb-column one column_hover_color ">
-                                <div class="hover_color" style="background:#fff" ontouchstart="this.classList.toggle('hover');">
-                                    <div class="hover_color_bg" style="background:#f0f1f2;">
-                                        <a href="{{ $.Site.BaseURL }}categories/architecture-and-design/">
-                                            <div class="hover_color_wrapper" style="padding:30px 20px;">
-                                                <h4 style="margin: 0;">{{ .title }}</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column mcb-column one column_blog ">
-                                <div class="column_filters">
-                                    <div class="blog_wrapper isotope_wrapper clearfix">
-                                        <div class="posts_group lm_wrapper col-2 masonry tiles isotope" style="background: #f0f1f2">
-                                            {{ $mytag := (.category) }}
-                                            {{ $class := .class}}
-                                            {{ range first 2 (index $.Site.Taxonomies.categories $mytag).Pages }}
-                                            <div class="post-item isotope-item clearfix post format-standard has-post-thumbnail {{ $class }}">
-                                              {{ partial "site/articles-post.html" . $}}
-                                            </div>
-                                            {{ end }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{ end }}
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="gradient-overlay background-blue-dark opacity-70"></div>
                 </div>
             </div>
-            {{ end }}
-            {{ with .Params.section4 }}
-            <div class="section mcb-section pre-footer" style="padding-top:40px; padding-bottom:0px; ">
-                <div class="section_wrapper mcb-section-inner">
-                    <div class="wrap mcb-wrap one  valign-top clearfix">
-                        <div class="mcb-wrap-inner">
-                            {{ with .col1 }}
-                            <div class="column mcb-column one-third column_column">
-                                <div class="column_attr">
-                                    <h2>{{ .title }}</h2>
-                                    <hr class="no_line" style="margin: 0 auto 15px;" />
-                                    <p>{{ .description1 | markdownify }}</p>
-                                    <p>
-                                        {{ .description2 | markdownify}}
-                                    </p>
-                                </div>
-                            </div>
-                            {{ end }}
-                            {{ with .col2 }}
-                            <div class="column mcb-column one-third column_column author-list">
-                                <div class="column_attr">
-                                    <h2>{{ .title }}</h2>
-                                    <hr class="no_line" style="margin: 0 auto 15px;" />
-                                    {{ range sort $.Site.Data.authors "weight" "asce" }}
-                                    <div style="position: relative; padding: 0 0 0 40px;">
-                                        <span class="icon-user place-left"></span>
-                                        <h5 style="font-weight: 700; margin: 0 0 6px 0">{{ .name }}</h5>
-                                        <p>
-                                            {{ .bio }}
-                                        </p>
-                                    </div>
-                                    {{ end }}
-                                </div>
-                            </div>
-                            {{ end }}
-                            {{ with .col3 }}
-                            <div class="column mcb-column one-third column_column">
-                                <div class="column_attr">
-                                    <h2>{{ .title }}</h2>
-                                    <hr class="no_line" style="margin: 0 auto 15px;" />
-                                    <p>{{ .description1 | markdownify }}</p>
-                                    <p>
-                                        {{ .description2 | markdownify }}
-                                    </p>
-                                    {{ with .btn }}
-                                    {{ $link := .link }}
-                                    <a class="button button_theme button_js" href="{{ $.Scratch.Get $link }}"><span class="button_label">{{ .text }}</span></a> </div>
-                                    {{ end }}
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-            <div class="section the_content no_content">
-                <div class="section_wrapper">
-                    <div class="the_content_wrapper"></div>
-                </div>
-            </div>
+
         </div>
-    </div>
-</div>
-{{ end }}
+
+        <nav class="socials-icons">
+            <ul>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="800"><a href="https://www.facebook.com/ComptoirMonsieurEmile/" target="_blank"><i class="icon ion-logo-facebook"></i></a></li>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="950"><a href="#4thPage" data-slide="4"><i class="icon ion-ios-mail"></i></a></li>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="1100" data-menuanchor="4thPage"><a href="https://widgets.libroreserve.com/WEB/QC015196556127/book" target="_blank"><i class="icon ion-ios-restaurant"></i></a></li>
+            </ul>
+        </nav>
+
+        <footer class="site-footer onstart animated" data-animation="fadeInUp" data-animation-delay="800">
+            <p class="copyright">© {{ now.Format "2006"}} Comptoir Monsieur Émile - Tous droits réservés</p>
+        </footer>
+
+        <div class="viewport-border">
+            <div class="vb-l"></div>
+            <div class="vb-r"></div>
+            <div class="vb-t"></div>
+            <div class="vb-b"></div>
+        </div>
+
+        <!-- JS -->
+        <script type="text/javascript" src="/js/main.min.js"></script>
+
+    </body>
+</html>

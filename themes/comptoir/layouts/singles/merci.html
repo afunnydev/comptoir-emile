@@ -1,38 +1,83 @@
-{{ define "main" }}
-<div id="Subheader" style="background-image: url('{{ .Params.image }}');" class="contact thank-you-page">
-    <div class="container">
-        <div class="column one">
-            <h1 class="title">{{ .Params.titre }}<span class="moon-heart_empty" style="margin-left: 20px; color: white"></span></h1>
-        </div>
-    </div>
-</div>
-<main class="main" id="contact">
-	<div id="Content">
-        <div class="content_wrapper clearfix">
-            <div class="sections_group">
-                <div class="entry-content">
-                    <div class="section mcb-section" style="padding-top:60px; padding-bottom:20px; ">
-                        <div class="section_wrapper mcb-section-inner">
-                            <div class="wrap mcb-wrap one  valign-top clearfix">
-                                <div class="mcb-wrap-inner">
-                                    <div class="column mcb-column one column_column">
-                                        <div class="column_attr thank-you-page">
-                                            {{ .Content }}
-                                            <div class="contact-separator"></div>
-                                        </div>
-                                    </div>
-                                </div>
+<!DOCTYPE html>
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US">  <!--<![endif]-->
+    {{- partial "site-head.html" . -}}
+    <body>
+
+        {{ `<!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->` | safeHTML }}
+        {{- partial "header/google-tag-manager.html" . -}}
+
+        <!-- <div id="preloader">
+            <div id="loading-animation">&nbsp;</div>
+        </div> -->
+
+        <header class="site-header">
+            <nav id="navigation" class="navigation site-nav navbar">
+                <div class="navbar-header onstart animated" data-animation="fadeInDown" data-animation-delay="1200">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false" aria-controls="navbar">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ $.Site.BaseURL }}">
+                        <!-- Logo -->
+                        <img src="/img/logo-comptoir-monsieur-emile.png" alt="Comptoir Monsieur Emile" style="max-height: 100%; width: auto"/>
+                    </a>
+                </div>
+                <div id="main-nav" class="navbar-collapse collapse">
+                    <ul id="menu" class="nav navbar-nav navbar-right onstart animated" data-animation="fadeInDown" data-animation-delay="800">
+                        <li><a href="{{ $.Site.BaseURL }}">Accueil</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div id="fullpage">
+                            
+            <!-- Home Section -->
+            <div class="section home active parallax-background image-2" id="section0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <!-- Slide Content -->
+                            <div class="slide-content">
+                                <p class="lead onstart animated" data-animation="fadeInUp" data-animation-delay="1000" style="font-size: 20px;">Merci! Votre message est bien reçu et nous vous répondrons dans les plus brefs délais. D'ici là, n'hésitez pas à jetez un coup d'oeil à notre <a href="https://www.facebook.com/ComptoirMonsieurEmile/" target="_blank" style="color: white; text-decoration: underline;">page Facebook</a> pour plus d'informations.</p>
+                                <a href="https://widgets.libroreserve.com/WEB/QC015196556127/book" class="border-button bt-border-white go-slide onstart animated" data-animation="fadeInUp" data-animation-delay="1200" data-slide="2" target="_blank">Réserver</a>
+                                <a href="{{ $.Site.BaseURL }}" class="default-button bt-transparent go-slide onstart animated" data-animation="fadeInUp" data-animation-delay="1200">Retourner à l'accueil <i class="fa fa-angle-down"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="section the_content no_content">
-                        <div class="section_wrapper">
-                            <div class="the_content_wrapper"></div>
-                        </div>
-                    </div>
                 </div>
-            </div>
+                <!-- Overlay -->
+                <div class="overlay">
+                    <div class="gradient-overlay background-blue-dark opacity-70"></div>
+                </div>
+            </div> 
+                
         </div>
-    </div>
-</main>
-{{ end }}
+
+        <nav class="socials-icons">
+            <ul>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="800"><a href="https://www.facebook.com/ComptoirMonsieurEmile/" target="_blank"><i class="icon ion-logo-facebook"></i></a></li>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="950"><a href="#4thPage" data-slide="4"><i class="icon ion-ios-mail"></i></a></li>
+                <li class="onstart animated" data-animation="fadeInRightBig" data-animation-delay="1100" data-menuanchor="4thPage"><a href="https://widgets.libroreserve.com/WEB/QC015196556127/book" target="_blank"><i class="icon ion-ios-restaurant"></i></a></li>
+            </ul> 
+        </nav>
+
+        <footer class="site-footer onstart animated" data-animation="fadeInUp" data-animation-delay="800">
+            <p class="copyright">© 2018 Comptoir Monsieur Émile - Tous droits réservés</p>
+        </footer>
+
+        <div class="viewport-border">
+            <div class="vb-l"></div>
+            <div class="vb-r"></div>
+            <div class="vb-t"></div>
+            <div class="vb-b"></div>
+        </div>
+        
+        <!-- JS -->
+        <script type="text/javascript" src="/js/main.min.js"></script>
+        
+    </body>
+</html>

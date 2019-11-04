@@ -1,4 +1,4 @@
-baseURL = "https://comptoirmonsieuremile.com/"
+baseURL = "https://www.comptoirmonsieuremile.com/"
 DefaultContentLanguage = "en"
 title = ""
 theme = "comptoir"
@@ -7,7 +7,7 @@ description = ""
 # Pointing to this file
 config = "config.toml"
 contentdir = "content"
-disableKinds = ["RSS"]
+disableKinds = ["taxonomy", "taxonomyTerm", "RSS"]
 # Create an array of files you don't want hugo to build
 ignoreFiles = []
 # Enable Logging
@@ -24,15 +24,15 @@ defaultContentLanguageInSubdir = false
   ## Include google maps, with API Key
   googleapikey = ""
   ## This is used when the BaseURL does not need to modified (eg, in share links)
-  siteaddress = "/"
-  siteaddressno = ""
+  siteaddress = "https://www.comptoirmonsieuremile.com/"
+  siteaddressno = "https://www.comptoirmonsieuremile.com"
   ## FB share info
   fbpagename = ""
   fbappid = ""
   ## Business name in Schema.org
-  schemabiz = ""
+  schemabiz = "Comtpoir Monsieur Émile"
   ## Google Tag Manager tracking ID
-  gtmid = ""
+  gtmid = "GTM-NXHG97H"
 
 # MARKDOWN
 ## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
